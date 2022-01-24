@@ -6,7 +6,8 @@ To run the application, a set of Python and geo packages need to be installed. W
 
 ## Usage
 Run the run.bat file to start the scraping. Change it accordingly.
-Example:
-@echo off
+
+**Example:**
+_@echo off
 "Path where your Python exe is stored\python.exe" "Path where your Python script is stored\script name.py"
-pause
+pause_
