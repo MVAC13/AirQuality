@@ -7,14 +7,13 @@
     - datetime
 """
 
-import schedule
 import requests
 import pandas as pd
 import lxml.html as lh
 from datetime import datetime
 
-# creating function to retrieve data
 def aqtable(url):
+    """ Scrapes air quality data table from website """
     # requesting page
     page = requests.get(url)
 
@@ -72,9 +71,8 @@ def aqtable(url):
     df = pd.DataFrame(ddict)
     return df
 
-
-# function to export
 def aqexport(df, station, path):
+    """ Exports data to excel format """
     # removing unnecessary letters from TIMESTAMP column
     df['TIMESTAMP'] = df['TIMESTAMP'].str.replace('\n\t\t\t\t\t', '')
 
@@ -90,3 +88,27 @@ def aqexport(df, station, path):
     # exporting to xlsx
     df.to_excel(path + '/' + name_df, index=False)
 
+## air quality stations
+# attard
+attard = aqtable('https://era.org.mt/air-quality-widget/air-quality-widget-table/?station=624100')
+aqexport(attard, 'attard', 'C:\GIS_Projects\Mappa\AirQuality')
+
+# gharb
+gharb = aqtable('https://era.org.mt/air-quality-widget/air-quality-widget-table/?station=623100')
+aqexport(gharb, 'gharb', 'C:\GIS_Projects\Mappa\AirQuality')
+
+# msida
+msida = aqtable('https://era.org.mt/air-quality-widget/air-quality-widget-table/?station=622100')
+aqexport(msida, 'msida', 'C:\GIS_Projects\Mappa\AirQuality')
+
+# zejtun
+zejtun = aqtable('https://era.org.mt/air-quality-widget/air-quality-widget-table/?station=570100')
+aqexport(zejtun, 'zejtun', 'C:\GIS_Projects\Mappa\AirQuality')
+
+# stpaulsbay
+stpaulsbay = aqtable('https://era.org.mt/air-quality-widget/air-quality-widget-table/?station=1180100')
+aqexport(stpaulsbay, 'stpaulsbay', 'C:\GIS_Projects\Mappa\AirQuality')
+
+# senglea
+senglea = aqtable('https://era.org.mt/air-quality-widget/air-quality-widget-table/?station=643100')
+aqexport(senglea, 'senglea', 'C:\GIS_Projects\Mappa\AirQuality')
