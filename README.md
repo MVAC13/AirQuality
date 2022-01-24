@@ -9,10 +9,10 @@ Run the run.bat file to start the scraping. Change it accordingly.
 
 **Example:**
 
-_@echo off
+_@echo off_
 
 ``
 "Path where your Python exe is stored\python.exe" "Path where your Python script is stored\script name.py"
 ``
 
-pause_
+_pause_
