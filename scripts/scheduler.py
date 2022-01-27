@@ -10,4 +10,4 @@ import time
 
 while True:
   os.system("python C:\\Users\\Veronica\\PycharmProjects\\AirQuality\\scripts\\main.py")
-  time.sleep(2*60)
+  time.sleep(240*60)
